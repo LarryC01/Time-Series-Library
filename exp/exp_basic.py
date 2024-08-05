@@ -37,7 +37,7 @@ class Exp_Basic(object):
         if args.model == 'Mamba':
             print('Please make sure you have successfully installed mamba_ssm')
             from models import Mamba
-            self.model_dict[Mamba] = Mamba
+            self.model_dict['Mamba'] = Mamba # typo here
 
         self.device = self._acquire_device()
         self.model = self._build_model().to(self.device)
