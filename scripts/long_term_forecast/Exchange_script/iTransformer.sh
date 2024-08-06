@@ -1,6 +1,6 @@
-export CUDA_VISIBLE_DEVICES=1
+# export CUDA_VISIBLE_DEVICES=1
 
-model_name=Autoformer
+model_name=iTransformer
 
 time python -u run.py \
   --task_name long_term_forecast \
@@ -20,6 +20,9 @@ time python -u run.py \
   --enc_in 8 \
   --dec_in 8 \
   --c_out 8 \
+  --d_model 64 \
+  --d_ff 64 \
+  --top_k 5 \
   --des 'Exp' \
   --itr 1
 
@@ -41,9 +44,11 @@ time python -u run.py \
   --enc_in 8 \
   --dec_in 8 \
   --c_out 8 \
+  --d_model 64 \
+  --d_ff 64 \
+  --top_k 5 \
   --des 'Exp' \
-  --itr 1 \
-  --train_epochs 1
+  --itr 1
 
 time python -u run.py \
   --task_name long_term_forecast \
@@ -63,6 +68,9 @@ time python -u run.py \
   --enc_in 8 \
   --dec_in 8 \
   --c_out 8 \
+  --d_model 32 \
+  --d_ff 32 \
+  --top_k 5 \
   --des 'Exp' \
   --itr 1 \
   --train_epochs 1
@@ -85,5 +93,9 @@ time python -u run.py \
   --enc_in 8 \
   --dec_in 8 \
   --c_out 8 \
+  --d_model 32 \
+  --d_ff 32 \
+  --top_k 5 \
   --des 'Exp' \
-  --itr 1
+  --itr 1 \
+  --train_epochs 1

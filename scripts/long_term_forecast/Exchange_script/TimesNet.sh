@@ -1,8 +1,8 @@
-export CUDA_VISIBLE_DEVICES=1
+# export CUDA_VISIBLE_DEVICES=1
 
 model_name=TimesNet
 
-python -u run.py \
+time python -u run.py \
   --task_name long_term_forecast \
   --is_training 1 \
   --root_path ./dataset/exchange_rate/ \
@@ -26,7 +26,7 @@ python -u run.py \
   --des 'Exp' \
   --itr 1
 
-python -u run.py \
+time python -u run.py \
   --task_name long_term_forecast \
   --is_training 1 \
   --root_path ./dataset/exchange_rate/ \
@@ -50,7 +50,7 @@ python -u run.py \
   --des 'Exp' \
   --itr 1
 
-python -u run.py \
+time python -u run.py \
   --task_name long_term_forecast \
   --is_training 1 \
   --root_path ./dataset/exchange_rate/ \
@@ -75,7 +75,7 @@ python -u run.py \
   --itr 1 \
   --train_epochs 1
 
-python -u run.py \
+time python -u run.py \
   --task_name long_term_forecast \
   --is_training 1 \
   --root_path ./dataset/exchange_rate/ \

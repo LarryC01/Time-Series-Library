@@ -11,6 +11,7 @@ import warnings
 import numpy as np
 from utils.dtw_metric import dtw,accelerated_dtw
 from utils.augmentation import run_augmentation,run_augmentation_single
+from sklearn.metrics import r2_score 
 
 warnings.filterwarnings('ignore')
 
@@ -270,15 +271,16 @@ class Exp_Long_Term_Forecast(Exp_Basic):
             
 
         mae, mse, rmse, mape, mspe = metric(preds, trues)
-        print('mse:{}, mae:{}, dtw:{}'.format(mse, mae, dtw))
+        r2 = r2_score(trues.reshape(-1), preds.reshape(-1))
+        print('mse:{}, mae:{}, dtw:{}, r2:{}'.format(mse, mae, dtw, r2))
         f = open("result_long_term_forecast.txt", 'a')
         f.write(setting + "  \n")
-        f.write('mse:{}, mae:{}, dtw:{}'.format(mse, mae, dtw))
+        f.write('mse:{}, mae:{}, dtw:{}, r2:{}'.format(mse, mae, dtw, r2))
         f.write('\n')
         f.write('\n')
         f.close()
 
-        np.save(folder_path + 'metrics.npy', np.array([mae, mse, rmse, mape, mspe]))
+        np.save(folder_path + 'metrics.npy', np.array([mae, mse, rmse, mape, mspe, r2]))
         np.save(folder_path + 'pred.npy', preds)
         np.save(folder_path + 'true.npy', trues)
 
